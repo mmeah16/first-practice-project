@@ -1,0 +1,11 @@
+name: Output Event Details
+on:
+    issues:
+      types: [opened, edited, milestoned]
+jobs:
+    output-details:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Output GitHub context 
+              # GitHub is a reserved key-word
+              run: echo "${{ toJSON(github) }}"
